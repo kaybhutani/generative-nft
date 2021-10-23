@@ -12,6 +12,7 @@ A python based library to help you create unique generative images based on Rari
 - Place all your layers in the `layers` folder. Make folders for each traits and add images inside it.
   For example:
   layers
+  ```
   ├── body
   |    |─── body.png
   ├── cloths                    
