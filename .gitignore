@@ -145,3 +145,4 @@ atlassian-ide-plugin.xml
 
 
 layers/*/
+exports/*

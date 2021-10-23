@@ -3,11 +3,11 @@ from PIL import Image
 import random
 import os
 
+
 class Trait:
 
-    def __int__(self, name: str, foldername:str, variants: list[Variant], collectionsize: int = 100, basedir: str = "layers"):
+    def __init__(self, name: str, foldername: str, variants: list[Variant], collectionsize: int = 100, basedir: str = "layers"):
         """
-
         :param name: name of trait
         :param foldername: name of folder
         :param variants: variants under trait
@@ -15,18 +15,18 @@ class Trait:
         """
         self.name = name
         self.foldername = "{}/{}".format(basedir, foldername)
-        self.variants = self.rarityBasedVariants(variants)
         self.collectionsize = collectionsize
+        self.variants = self.rarityBasedVariants(variants)
         self.iterator = 0
         self.basedir = basedir
 
-        if not os.path.isdir(foldername):
-            raise  ValueError(foldername, "doesn't exists")
+        if not os.path.isdir(self.foldername):
+            raise  ValueError(self.foldername, "doesn't exists")
 
     def rarityBasedVariants(self, variants: list[Variant]) -> list[Variant]:
         generated: list[Variant] = []
         for i in variants:
-            generated.extend(i.rarity*self.collectionsize*[i])
+            generated.extend((int(i.rarity*self.collectionsize))*[i])
         return generated
 
     def getNextVariant(self) -> Image:
@@ -38,9 +38,19 @@ class Trait:
         self.iterator += 1
         return image
 
-    def getRandom(self) -> Image:
-        randomVariant = random.choice(self.variants)
+    def getRandomVariant(self) -> Variant:
+        return random.choice(self.variants)
+
+    def getRandomImage(self, variant: Variant) -> Image:
+        randomVariant = random.choice(self.variants) if not variant else variant
         imagePath = "{}/{}".format(self.foldername, randomVariant.filename)
+        if not os.path.isfile(imagePath):
+            raise ValueError(imagePath, "doesn't exists")
+        image = Image.open(imagePath)
+        return image
+
+    def getImage(self, variant: Variant) -> Image:
+        imagePath = "{}/{}".format(self.foldername, variant.filename)
         if not os.path.isfile(imagePath):
             raise ValueError(imagePath, "doesn't exists")
         image = Image.open(imagePath)
