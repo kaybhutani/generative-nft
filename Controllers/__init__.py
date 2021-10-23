@@ -5,7 +5,7 @@ from Trait import Trait
 from Utils import isUniqueNFT, getMetaData
 
 
-def generateRandomCollection(traits: dict, count: int, exportDir: str = "exports"):
+def generateRandomCollection(traits: dict, count: int, exportDir: str = "exports", minimumDifference: int = 1):
 
     if not os.path.isdir(exportDir):
         os.mkdir(exportDir)
@@ -20,7 +20,7 @@ def generateRandomCollection(traits: dict, count: int, exportDir: str = "exports
             traitsArray.append(trait)
             variantsArray.append(trait.getRandomVariant())
 
-        if isUniqueNFT(map, variantsArray, 2):
+        if isUniqueNFT(map, variantsArray, minimumDifference):
             print("Found unique traits")
             map.append(variantsArray)
             layers = []

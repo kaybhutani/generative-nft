@@ -1,6 +1,10 @@
-# generative-nft
+# Generative-NFT
+### Generate Unique Images based on Rarity
 
-A python based library to help you create unique generative NFT's based on Rarity ⭐️.
+
+
+
+A python based library to help you create unique generative images based on Rarity for your next NFT Project ⭐️.
 
 
 ## How to use
@@ -21,4 +25,7 @@ A python based library to help you create unique generative NFT's based on Rarit
 - Edit `minimumDifference` if needed, this is the number of minimum difference in Traits each NFT will have to ensure complete uniqueness. Make sure you don't keep this very high which would end up in a very slow process/infinite loop.
 - That's it! Run the `main.py` and wait for the images to be created.
 
+
+
+#### Used the project?
 <a href="https://www.buymeacoffee.com/kartikay" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>

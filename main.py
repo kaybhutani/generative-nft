@@ -14,5 +14,7 @@ traits = {
 
 if __name__ == '__main__':
     count = 10  # number of unique nft to generate
-    generateRandomCollection(traits, count)
+    minimumDifference = 1  # minimum numer of differences in the traits in each nft.
+    exportDir = "exports"
+    generateRandomCollection(traits, count, exportDir, minimumDifference)
     print("Done! All files generated.")
