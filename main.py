@@ -1,4 +1,8 @@
 
+def generate():
+    map = {}
+
+
 
 
 if __name__ == '__main__':
