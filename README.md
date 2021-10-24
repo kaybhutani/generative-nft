@@ -9,13 +9,14 @@ A python based library to help you create unique generative images based on Rari
 
 ## How to use
 
+- Install the dependencies using `pip -r requirements.txt`
 - Place all your layers in the `layers` folder. Make folders for each traits and add images inside it.
   For example:
   layers
   ```
   ├── body
   |    |─── body.png
-  ├── cloths                    
+  ├── clothes                    
   │   ├── red-top.png          
   │   ├── blue-shirt.png         
   │   └── green-top.png                
@@ -28,5 +29,5 @@ A python based library to help you create unique generative images based on Rari
 
 
 
-#### Used the project?
+#### Loved the project?
 <a href="https://www.buymeacoffee.com/kartikay" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
