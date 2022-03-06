@@ -6,7 +6,7 @@ import os
 
 class Trait:
 
-    def __init__(self, name: str, foldername: str, variants: list[Variant], collectionsize: int = 100, basedir: str = "layers"):
+    def __init__(self, name: str, foldername: str, variants: 'list[Variant]', collectionsize: int = 100, basedir: str = "layers"):
         """
         :param name: name of trait
         :param foldername: name of folder
@@ -23,7 +23,7 @@ class Trait:
         if not os.path.isdir(self.foldername):
             raise  ValueError(self.foldername, "doesn't exists")
 
-    def rarityBasedVariants(self, variants: list[Variant]) -> list[Variant]:
+    def rarityBasedVariants(self, variants: 'list[Variant]') -> 'list[Variant]':
         generated: list[Variant] = []
         for i in variants:
             generated.extend((int(i.rarity*self.collectionsize))*[i])

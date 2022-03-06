@@ -10,7 +10,7 @@ def mergeImages(background: Image, foreground: Image):
 
 
 class NFT:
-    def __init__(self, layers: list[Image], metadata: dict, uniqueId: str = str(datetime.now().timestamp()*1000), exportPath: str = "exports", filetype: str = "png", useFolder: bool = True):
+    def __init__(self, layers: 'list[Image]', metadata: dict, uniqueId: str = str(datetime.now().timestamp()*1000), exportPath: str = "exports", filetype: str = "png", useFolder: bool = True):
         if not layers:
             raise ValueError("Cannot generate image with 0 layers")
         self.image = layers[0]

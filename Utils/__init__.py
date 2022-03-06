@@ -2,7 +2,7 @@ from Trait import Trait
 from Variant import Variant
 
 
-def getMinimumDifference(generated: list[list[Variant]], arr: list[Variant]):
+def getMinimumDifference(generated: 'list[list[Variant]]', arr: 'list[Variant]'):
     diff = len(arr)
     variants = []
     map = []
@@ -23,11 +23,11 @@ def getMinimumDifference(generated: list[list[Variant]], arr: list[Variant]):
     return diff
 
 
-def isUniqueNFT(generated: list[list[Variant]], arr: list[Variant], minimumDifference: int = 1):
+def isUniqueNFT(generated: 'list[list[Variant]]', arr: 'list[Variant]', minimumDifference: int = 1):
     return getMinimumDifference(generated, arr) >= minimumDifference
 
 
-def getMetaData(traits: list[Trait], variants: list[Variant]) -> dict:
+def getMetaData(traits: 'list[Trait]', variants: 'list[Variant]') -> dict:
     metadata = {}
     for i,j in zip(traits, variants):
         metadata[i.name] = j.name
