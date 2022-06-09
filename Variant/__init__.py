@@ -1,6 +1,6 @@
 class Variant:
 
-    def __init__(self, name: str, filename: str, rarity: float, layersToExclude: 'list[str]' = []):
+    def __init__(self, name: str, filename: str, rarity: float, shouldExcludeInDifference = False, layersToExclude: 'list[str]' = [] ):
         """
         :param name: name of variant
         :param filename: name of file with extension
@@ -10,3 +10,4 @@ class Variant:
         self.filename = filename
         self.rarity = rarity
         self.layersToExclude = layersToExclude
+        self.shouldExcludeInDifference = shouldExcludeInDifference

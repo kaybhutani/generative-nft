@@ -2,19 +2,21 @@ from Trait import Trait
 from Variant import Variant
 
 
-def getMinimumDifference(generated: 'list[list[Variant]]', arr: 'list[Variant]'):
-    diff = len(arr)
+def getMinimumDifference(generated: 'list[list[Variant]]', currentGenerated: 'list[Variant]'):
+    diff = len(currentGenerated)
     variants = []
-    map = []
+    allLayerNames = []
     for g in generated:
         temp = []
         for i in g:
             temp.append(i.name)
-        map.append(temp)
-    for i in arr:
-        variants.append(i.name)
+        allLayerNames.append(temp)
+    for i in currentGenerated:
+        if not i.shouldExcludeInDifference:
+            # exclude layers like background, etc. to be counted in minimum difference
+            variants.append(i.name)
 
-    for i in map:
+    for i in allLayerNames:
         currDiff = 0
         for j in variants:
             if j not in i:
